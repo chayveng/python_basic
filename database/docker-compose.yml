@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0  # MySQL version (change if needed)
+    container_name: mysql_container
+    environment:
+      MYSQL_ROOT_PASSWORD: cg3qEc8078wq9SzD6L3u  # Set the root password
+      MYSQL_DATABASE: example  # Optional: create a database
+      MYSQL_USER: admin  # Optional: create a user
+      MYSQL_PASSWORD: gYpBdS9bcqKmGdsHIXLz5a7mtgnWrb8f   # Set the password for the user
+    ports:
+      - "3306:3306"  # Expose MySQL on the default port
+    volumes:
+      - db_data:/var/lib/mysql  # Persist data on host system
+    networks:
+      - mysql_network
+
+  workbench:
+    image: dpage/pgadmin4:latest  # Use a prebuilt MySQL Workbench-like image
+    container_name: mysql_workbench
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com  # Set a login email
+      PGADMIN_DEFAULT_PASSWORD: admin  # Set a password
+    ports:
+      - "8080:80"  # Expose Workbench UI on port 8080
+    networks:
+      - mysql_network
+    depends_on:
+      - mysql  # Ensure MySQL is running before Workbench starts
+
+volumes:
+  db_data:  # Docker volume for persistent storage
+
+networks:
+  mysql_network:  # Docker network for container communication
