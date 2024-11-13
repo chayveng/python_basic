@@ -1,16 +1,16 @@
 print("Hello,Pyhon")
 
-a = 10 # INTEGER
-b = 10.5 # FLOAT
-cc = "h" # character
-c = "hello" # STRING, Object
+a = 10  # INTEGER
+b = 10.5  # FLOAT
+cc = "h"  # character
+c = "hello"  # STRING, Object
 d = [
     1,
     2,
     3
-] # LIST, Array, Ojbect
-e = {"name": "John", "age": 30} # Object
-f = True # BOOLEAN
+]  # LIST, Array, Ojbect
+e = {"name": "John", "age": 30}  # Object
+f = True  # BOOLEAN
 
 print(d)
 print(d[2])
@@ -18,12 +18,12 @@ print(d[2])
 sum = d[2] + d[0]
 
 length = len(c)
-print("length of c:",length)
+print("length of c:", length)
 
 ee = [
-    { "name": "John", "age": 30 },
-    { "name": "Snow", "age": 15 }
-    ]
+    {"name": "John", "age": 30},
+    {"name": "Snow", "age": 15}
+]
 
 person = ee[0]
 name = person["name"]
